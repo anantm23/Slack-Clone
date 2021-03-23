@@ -52,9 +52,10 @@ const signOut =() => {
                   <Chat user={user} />
                 </Route>
                 <Route path='/'>
-                  Select or Create Channel
+                <Route path="/room/XvTuN4CVngc4Enb0N3Y8">
+                  <Chat user={user} />
                 </Route>
-
+                </Route>
               </Switch>
             </Main>
           </Container>
@@ -70,7 +71,7 @@ const Container = styled.div`
   width : 100%;
   height: 100vh;
   display: grid;
-  grid-template-rows: 36px minmax(0, 1fr);
+  grid-template-rows: 36px minmax(0, auto);
 `
 
 const Main = styled.div`
