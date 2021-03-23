@@ -37,30 +37,24 @@ function Sidebar(props) {
                     <AddCircleOutlineIcon />
                 </NewMessage>
             </WorkspaceContainer>
-            <MainChannels>
-                
-                    {
-                        sidebarItems.map(item=> (
-                            <MainChannelItem>
-                                {item.icons}
-                                {item.text}    
-                            </MainChannelItem>
-                        ))
-                    }
-            </MainChannels>
 
             <ChannelsConatiner>
                     <NewChannelContainer>
                         <div>
-                            Channels
+                            <h4>Channels</h4>
                         </div>
-                        <AddIcon onClick={addChannel} />
+                        <AddIconContainer>
+                            <AddIcon onClick={addChannel} />
+                        </AddIconContainer>
                     </NewChannelContainer>
                     <ChannelList>
                         {
                             props.rooms.map(item => (
                                 <Channel onClick={()=> goToChannel(item.id)}>
-                                  # {item.name}
+                                  <Hash>
+                                     #
+                                    </Hash>
+                                    {item.name}
                                 </Channel>
                             ))
                         }
@@ -91,6 +85,9 @@ border-bottom: 1px solid #532753;
 const Name = styled.div`
 
 `
+const Hash = styled.div`
+    padding: 0 2% 0 0;
+`
 
 const NewMessage = styled.div`
 width: 36px;
@@ -106,25 +103,9 @@ margin: 0 20px 0 0;
 cursor: pointer;
 `
 
-const MainChannels = styled.div`
-    padding: 20px 0 0 0;
-`
-
-const MainChannelItem = styled.div`
-    color: rgb(188, 171, 188);
-    display: grid;
-    grid-template-columns: 15% auto;
-    height: 28px;
-    align-items: center;
-    padding: 0 0 0 19px;
-    cursor: pointer;
-    :hover{
-        background: #350D36;
-    }
-`
 const ChannelsConatiner = styled.div`
     color: rgb(188, 171, 188);
-    margin : 10px 0 0 0;
+    margin : 0 0 0 0;
 `
 const NewChannelContainer = styled.div`
     display: flex;
@@ -132,6 +113,7 @@ const NewChannelContainer = styled.div`
     align-items: center;
     height: 28px;
     padding: 0 12px 0 19px;
+    border-bottom: 1px solid #532753;
     
 
 `
@@ -140,12 +122,17 @@ const ChannelList = styled.div`
 `
 
 const Channel = styled.div`
-    height: 28px;
+    
+    border-bottom: 1px solid #532753;
+    margin-top: 2px; 
     display: flex;
-    align-items:center;
-    padding: 0 0 0 19px; 
+    padding: 0 0 0 5%; 
     cursor: pointer;
     :hover{
         background: #350D36;
     }
+`
+
+const AddIconContainer = styled.div`
+    cursor:pointer;
 `
